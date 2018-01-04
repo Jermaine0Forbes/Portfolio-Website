@@ -1,22 +1,18 @@
-<section class="row justify-content-center">
-    <h1>logo</h1>
-</section>
-<nav>
-    <ul>
-        <li class="nav-item"><a class="nav-link" href="#">link</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">link</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">link</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">link</a></li>
-    </ul>
-</nav>
-<footer>
-    <section class="row column social" >
-        <a href="#">facebook</a>
-        <a href="#">facebook</a>
-        <a href="#">facebook</a>
-        <a href="#">facebook</a>
-    </section>
-    <section>
-        
-    </section>
-</footer>
+<div class="row justify-content-center mar-half marV no-pad">
+      <div class="col-md-6 hidden-sm-down">
+          <nav class="top-nav navbar">
+              <ul class=" navbar-nav around">
+                  <li class="nav-item">
+                    <a class="nav-link @if(Route::is('home')) active @endif" href="/">Portfolio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link @if(Route::is('skills')) active @endif" href="/skills">Skills</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link @if(Route::is('about')) active @endif" href="/about">About</a>
+
+                  </li>
+              </ul>
+          </nav>
+      </div>
+  </div>

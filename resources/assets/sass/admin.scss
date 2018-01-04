@@ -1,0 +1,67 @@
+
+
+$dark: #343a40;
+$mid : #67737e;
+
+@mixin texty($a:left, $t:capitalize, $d: none){
+    text:{
+        align:$a;
+        transform:$t;
+        decoration: $d ;
+    }
+}
+
+nav {
+
+    a{
+        color:white;
+        &:hover{
+            color:white;
+        }
+    }
+
+    .dropdown-menu{
+        a{
+            color:black;
+            padding-left:0.5em;
+        }
+    }
+}
+
+
+aside{
+    position:fixed;
+    left:0;
+    min-width:200px;
+    width:100%;
+    max-width:300px;
+    height:100%;
+
+    li{
+        border-bottom: white 4px solid;
+        transition:all 0.3s;
+
+
+        &:hover{
+            background:$dark;
+            a{
+                color:white;
+                font-weight:bold;
+                padding-left:4em;
+            }
+
+        }
+    }
+
+    a{
+        @include texty;
+        padding:1em 0;
+        padding-left: 2em;
+        display:block;
+        color:$dark;
+        transition: all 0.3s;
+        &:hover{
+            text-decoration:none;
+        }
+    }
+}
