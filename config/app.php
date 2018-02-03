@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        'Vinelab\Editor\EditorServiceProvider',
 
         /*
          * Package Service Providers...

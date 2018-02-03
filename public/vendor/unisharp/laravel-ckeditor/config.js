@@ -35,4 +35,18 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+	config.autoParagraph = false;
+
+	config.height = 500;
+
+	config.removeFormatAttributes = "";
+
+	// config.autoUpdateElement = false;
+
+	config.basicEntities = false;
+	
+	config.clipboard_defaultContentType = 'html';
+
+	config.copyFormatting_allowRules = true;
 };

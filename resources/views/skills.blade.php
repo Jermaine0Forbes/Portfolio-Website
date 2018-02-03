@@ -19,12 +19,18 @@
                                           <thead>
                                             <tr>
                                               <th>Skillset</th>
+                                              <th>Rank</th>
+                                              <th>Currenty Learning</th>
+                                              <th>Position</th>
                                               <th>Years</th>
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr>
                                               <th scope="row">HTML</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>
@@ -36,6 +42,9 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">CSS</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>
@@ -47,18 +56,27 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">SCSS</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                               </td>
                                             </tr>
                                             <tr>
                                               <th scope="row">Bootstrap</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                               </td>
                                             </tr>
                                             <tr>
                                               <th scope="row">Javascript</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>
@@ -67,6 +85,9 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">JQuery</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>
@@ -74,6 +95,9 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">Photoshop</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>
@@ -82,6 +106,9 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">Illustrator</th>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
                                               <td>
                                                   <i class="fa fa-star"></i>
                                                   <i class="fa fa-star"></i>

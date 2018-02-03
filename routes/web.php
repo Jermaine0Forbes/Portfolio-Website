@@ -22,12 +22,31 @@ Route::get('/test', 'TestController@index')->name('test');
 Auth::routes();
 
 Route::prefix('admin')->group(function() {
+
+// SKILLS
+Route::get('/skills', 'AdminController@skills')->name('admin.skills');
+Route::post('/skills', 'AdminController@skillsStore')->name('admin.skills.submit');
+
+// PORTFOLIO
+Route::get('/portfolio', 'AdminController@portfolio')->name('admin.portfolio');
+Route::get('/portfolio/{id}', 'AdminController@portfolioPage')->name('admin.portfolio.page');
+Route::post('/portfolio/{id}', 'AdminController@portfolioPageStore')->name('admin.portfolio.page.submit');
+
+// LOGIN
   Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
+
+  // DASHBOARD
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
-  Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
+
+  // LOGOUT
+  Route::post('/logout', 'AdminLoginController@logout')->name('admin.logout');
+
+  // REGISTER
   Route::get('/register', 'AdminLoginController@showRegisterForm')->name('admin.register');
   Route::post('/register', 'AdminLoginController@register')->name('admin.register.submit');
+
+  // ABOUT
   Route::get('/about', 'AdminController@about')->name('admin.about');
   Route::post('/about', 'AdminController@aboutStore')->name('admin.about.submit');
 

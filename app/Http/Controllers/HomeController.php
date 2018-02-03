@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $project = Project::orderBy('pro_id','desc')->get();
+        //dd($project);
         return view('home',['projects'=>$project]);
     }
 }

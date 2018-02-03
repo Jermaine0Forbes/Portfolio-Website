@@ -8,9 +8,17 @@ use App\About;
 class AboutController extends Controller
 {
     public function index(){
-        $data = About::select('title','body')->latest()->first();
+        $data = About::latest()->first();
+		
+		$data_array = [
+		"summary"=>$data->summary, 
+		"title"=> $data->title, 
+		"highlight"=> $data->highlight, 
+		"experience"=> $data->experience, 
+		"image"=> $data->image, 
+		];
 
-        return view("page",["body" => $data->body, "title"=>$data->title]);
+        return view("about-page",$data_array);
 
         // return view('about');
     }

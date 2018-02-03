@@ -140,7 +140,7 @@
                                       </ul>
                                   </div>
                               @elseif(sizeof($pro->smallImage()) == 1)
-                                  <img class="img-fluid" src="img/{{$$pro->smallImage()[0]->image}}" alt="small image">
+                                  <img class="img-fluid" src="img/{{$pro->smallImage()[0]->image}}" alt="small image">
                               @else
                                   <img class="img-fluid" src="http://via.placeholder.com/450x450" alt="blank image">
                               @endif

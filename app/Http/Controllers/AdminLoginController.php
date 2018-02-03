@@ -9,7 +9,7 @@ class AdminLoginController extends Controller
 {
         public function __construct()
     {
-      $this->middleware('guest:admin');
+      $this->middleware('guest:admin')->except("logout");
     }
 
     public function showLoginForm()
@@ -30,9 +30,16 @@ class AdminLoginController extends Controller
         // if successful, then redirect to their intended location
         return redirect()->intended(route('admin.dashboard'));
       }
-      dd("failed");
+      // dd("failed");
       // if unsuccessful, then redirect back to the login with the form data
       return redirect()->back()->withInput($request->only('email', 'remember'));
+    }
+
+    public function logout(){
+         // dd("something");
+        Auth::guard("admin")->logout();
+
+        return redirect("/");
     }
 
     public function showRegisterForm()

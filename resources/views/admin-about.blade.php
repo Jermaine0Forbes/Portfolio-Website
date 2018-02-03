@@ -1,11 +1,12 @@
 @extends('layouts.backend')
 
 @section('content')
+@include('vendor.laravel-editor.editor-css')
 <div class="container">
     <div class="row">
         <form class="mt-3 w-100"  method="post" action="{{route('admin.about.submit')}}">
             {{ csrf_field() }}
-            <div class="row w-100">
+            <div class="row w-100 justify-content-center">
                 <div class="col-md-8 ">
                     <div class="card">
                         <div class="card-header">
@@ -17,11 +18,37 @@
                         </div>
 
                         <div class="card-body">
-                            <textarea id="editor" name="body" rows="8" cols="80">
-                                {{$content}}
-                            </textarea>
+                            <div class="form-group">
+                              <label for="about">Image</label>
+                              <input class="form-control" type="text" name="image" value="{{$image or "img.jpg"}}">
+                            </div>
                         </div>
-                        <div class="card-body row">
+                        <div class="card-body">
+                            <div class="form-group">
+                              <label for="summary">Summary</label>
+                              @include('vendor.laravel-editor.textarea',["name"=>'summary',"content" => $summary])
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="highlight">Highlights</label>
+                            @include('vendor.laravel-editor.textarea',["name"=>'highlight',"content" => $highlight])
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="experience">Experience</label>
+                            @include('vendor.laravel-editor.textarea',["name"=>'experience',"content" => $experience])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ml-auto">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Options                            
+                        </div>
+                        <div class="card-body">
                             <div class="col">
                                 <input class="btn btn-primary w-100" type="submit" name="" value="Save">
                             </div>
@@ -34,53 +61,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 ml-auto">
-                    <div class="card">
-                        <div class="card-header">
-                            Publish
-                        </div>
-                        <div class="card-body">
-                            {{-- <input class="btn btn-primary w-100" type="submit" name="" value="Save"> --}}
-                        </div>
-                    </div>
-
-                    <div class="card mt-4">
-                        <div class="card-header">
-                            Categories
-                        </div>
-                        <div class="card-body">
-                            <input class="form-control" type="text" name="categories" >
-                        </div>
-                    </div>
-
-                    <div class="card mt-4">
-                        <div class="card-header">
-                            Tags
-                        </div>
-                        <div class="card-body">
-                            <input class="form-control" type="text" name="tags" >
-                        </div>
-                    </div>
-
-                    <div class="card mt-4">
-                        <div class="card-header">
-                            Featured Image
-                        </div>
-                        <div class="card-body">
-                            <input type="file" name="featured-image" >
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </form>
 
     </div>
 </div>
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+@include('vendor.laravel-editor.editor-js')
+<!-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/config.js"></script>
     <script>
-        $('textarea#editor').ckeditor();
+        var selector = 'textarea#editor';
+
+        $(selector).ckeditor();
+
+        CKEDITOR.editorConfig(CKEDITOR.config);
+        console.log(CKEDITOR.config);
         // $('.textarea').ckeditor(); // if class is prefered.
-    </script>
+    </script> -->
 @endsection

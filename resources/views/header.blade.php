@@ -10,8 +10,16 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link @if(Route::is('about')) active @endif" href="/about">About</a>
-
                   </li>
+                  @auth ('admin')
+                      <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="admin/@if(Request::path() == "/")portfolio @else {{Request::path()}} @endif">Edit</a>
+                    </li>
+                  @endauth
               </ul>
           </nav>
       </div>
