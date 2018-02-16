@@ -67,6 +67,7 @@ $(document).ready(function(){
                         hoveringSmall(slide);
                         startSlides(slide);
                     }
+                    
                 },300);
 
 

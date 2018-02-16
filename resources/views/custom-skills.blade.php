@@ -16,9 +16,9 @@
                               <thead>
                                 <tr>
                                   <th>Skillset</th>
-                                  <th>Rank</th>
-                                  <th>Currenty Learning</th>
-                                  <th>Position</th>
+                                  <th class="hidden-xs-down">Rank</th>
+                                  <th class="hidden-sm-down">Learning</th>
+                                  <th class="hidden-md-down">Position</th>
                                   <th>Years</th>
                                 </tr>
                               </thead>
@@ -26,15 +26,15 @@
                                 @foreach( $set as $skill)
                                   <tr>
                                   <th scope="row">{{$skill->name}}</th>
-                                  <td>{{$skill->rank}}</td>
-                                  <td>
+                                  <td class="hidden-xs-down">{{$skill->rank}}</td>
+                                  <td class="hidden-sm-down">
                                     @if($skill->current == 0)
                                         No
                                     @else
                                          Yes
                                     @endif
                                   </td>
-                                  <td>{{$skill->position}}</td>
+                                  <td class="hidden-md-down">{{$skill->position}}</td>
                                   <td>
                                       @if ($skill->year)
                                           {{$skill->year->diffForHumans()}}

@@ -13,16 +13,9 @@ $(document).ready( function(){
       slide  = ".slide",
       fraction = (100 / slides)*0.01,
       currentWidth = width,
-      windowWidth ,
       newPos = 0,
-      menuBtn = $("button.menu-btn"),
-      menuVisible = "menu-visible",
-      menuHidden = "menu-hidden",
-      isOpen = true,
       proTitle = $('.project-title h4 a'),
       id ,
-      isMobile = false,
-      modal = $("#modal-menu"),
       projects = $('.projects'),
       slideWidth = width * fraction;
       $(slider).css({"width": width+"px"});
@@ -41,22 +34,7 @@ $(document).ready( function(){
 
       })
 
-/* ACTIVATES THE ANIMATION ON THE ABOUT AND SKILL PAGE */
-     function activateAbout(){
-           $(".about-block").animateCss("fadeIn");
-        //   $("#about-title").animateCss("fadeIn");
-        //   $("#bio").animateCss("fadeIn");
-        //   $("#experience").animateCss("fadeIn");
-          $('#about').addClass("visible");
-      }
 
-     function activateSkill(){
-         $("#frontend").animateCss("bounceIn");
-         $("#backend").animateCss("bounceIn");
-         $('#skill').addClass("visible");
-     }
-     activateSkill();
-     activateAbout();
 
 
 // CHANGES THE ACTIVE CLASS ON THE PAGINATION BUTTONS
@@ -90,79 +68,6 @@ $(document).ready( function(){
   $(slide).css({"width": slideWidth+"px"});
 
 
-function aboveMobile (){
-    if(isOpen){
-        $(this).removeClass('close-menu').addClass('open-menu');
-        $(this).find('i').removeClass('fa-times').addClass('fa-bars').css({"color":"white"});
-        $('header').removeClass(menuVisible).addClass(menuHidden);
-        isOpen = false;
-    }else{
-        $(this).removeClass('open-menu').addClass('close-menu')
-        $(this).find('i').removeClass('fa-bars').addClass('fa-times').css({"color":"#3E4F89"});
-        $('header').removeClass(menuHidden).addClass(menuVisible);
-        isOpen = true;
-    }
-
-}
-
-function belowMobile (){
-    if(!modal.hasClass('off')){
-        $(this).removeClass('close-menu').addClass('open-menu');
-        $(this).find('i').removeClass('fa-times').addClass('fa-bars').css({"color":"white"});
-        modal.addClass('off').fadeOut(500);
-        isOpen = false;
-    }else{
-        $(this).removeClass('open-menu').addClass('close-menu')
-        $(this).find('i').removeClass('fa-bars').addClass('fa-times').css({"color":"#3E4F89"});
-        modal.removeClass("off").fadeIn(500);
-        isOpen = true;
-    }
-
-}
-
-
-/* CONTROLLING THE TOP MENU   */
-    menuBtn.on('click', aboveMobile );
-
-
-  // CHECKS THE WINDOW SIZE IN ORDER TO SEE IF THE WIDTH IS UNDER 576PX
-  function checkMobile() {
-      windowWidth = $(window).width();
-
-      if( windowWidth < 577 && isMobile == false){
-          menuBtn.trigger('click');
-          menuBtn.off('click');
-          menuBtn.on('click', belowMobile )
-          isMobile = true;
-      }else if(windowWidth > 577 && isMobile == true){
-          menuBtn.off('click');
-          menuBtn.on('click', aboveMobile )
-          isMobile = false;
-      }
-    //   console.log(currentWidth)
-  }
-
-  checkMobile();
-
-
-  $(window).resize(function(){
-    width = ($(window).width()*slides);
-    $(slider).css({"width": width+"px"});
-    currentWidth = width * fraction;
-    slideWidth = currentWidth;
-    newPos = (slideNo-1)*(-slideWidth);
-    $(slide).css({"width": currentWidth+"px"});
-    $(slider).css({ "transition-duration" :"0s"});
-     $(slider).css({'transform' : "translateX("+newPos+"px)"});
-    adjustPaginationButtons();
-
-    setTimeout (function(){
-      $(slider).css({ "transition-duration" :"0.3s"});}, 500);
-
-      checkMobile()
-
-
-});
 
 // WHEN THE PAGINATION BUTTONS ARE CLICKED IT WILL CHANGE THE SLIDE TO THE RIGHT LOCATION
   $('.pagination-button').on('click', function(){
@@ -207,6 +112,28 @@ function belowMobile (){
 
 })//right on
 
+    
+     
+
+
+  $(window).resize(function(){
+    width = ($(window).width()*slides);
+    $(slider).css({"width": width+"px"});
+    currentWidth = width * fraction;
+    slideWidth = currentWidth;
+    newPos = (slideNo-1)*(-slideWidth);
+    $(slide).css({"width": currentWidth+"px"});
+    $(slider).css({ "transition-duration" :"0s"});
+     $(slider).css({'transform' : "translateX("+newPos+"px)"});
+    adjustPaginationButtons();
+
+    setTimeout (function(){
+      $(slider).css({ "transition-duration" :"0.3s"});}, 500);
+
+      
+
+
+});
 
 
 

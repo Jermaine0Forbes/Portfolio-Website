@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/css/bootstrap-revision.css">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" type="text/css" href="/css/animation-settings.css"/>
+       
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
     </head>
     <body>
         <div id="wrapper">
-            <header class="fluid menu-visible">
+            <header class="fluid ">
                 @include('header')
             </header>
                 @include('components.button-group')

@@ -11,10 +11,12 @@
 });// animateCss
 </script>
 
-<script src="/js/slide.js" ></script>
-
 
 @if(Route::is('home'))
-    <script src="/js/jquery.flexslider-min.js" ></script>
-    <script src="/js/anime.js" ></script>
+    <script src={{asset("/js/jquery.flexslider-min.js")}} ></script>
+    <script src={{asset("/js/slide.js")}} ></script>
+    <script src={{asset("/js/anime.js")}} ></script>
+@else
+    <script src={{asset("/js/other-pages.js")}} ></script>
 @endif
+<script src={{asset("/js/mobile.js")}} ></script>

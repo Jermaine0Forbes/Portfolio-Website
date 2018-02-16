@@ -17,12 +17,6 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
 
-    {{-- @if(Route::is('admin.about'))
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @else
-
-
-    @endif --}}
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -33,15 +27,20 @@
 <body>
     <div id="app">
         @include('components.admin-nav')
-        <main class="hite-10">
-            <aside id="admin-panel" class="bg-light" >
-                <ul class="nav flex-column">
-                    <li class="nav-item"><a  href="{{route('admin.portfolio')}}"><span class="fa fa-newspaper-o"></span> Portolio</a></li>
-                    <li class="nav-item"><a  href="{{route('admin.skills')}}"><span class="fa fa-newspaper-o"></span> Skills</a></li>
-                    <li class="nav-item"><a  href="{{route('admin.about')}}"><span class="fa fa-newspaper-o"></span> About</a></li>
-                </ul>
-            </aside>
-            @yield('content')
+        <main class="hite container-fluid">
+            <div class="row no-pad">
+                <aside id="admin-panel" class="bg-light col-2" >
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a  href="{{route('admin.portfolio')}}"><span class="fa fa-newspaper-o"></span> Portolio</a></li>
+                        <li class="nav-item"><a  href="{{route('admin.skills')}}"><span class="fa fa-newspaper-o"></span> Skills</a></li>
+                        <li class="nav-item"><a  href="{{route('admin.about')}}"><span class="fa fa-newspaper-o"></span> About</a></li>
+                        <li class="nav-item"><a  href="{{route('admin.contact')}}"><span class="fa fa-newspaper-o"></span> Contact</a></li>
+                    </ul>
+                </aside>
+                <div class="ml-auto col-md-10">
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 

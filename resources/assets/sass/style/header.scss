@@ -1,0 +1,105 @@
+/*==============
+    HEADER
+=============*/
+
+
+header{
+    
+    z-index:5;
+
+    a{
+        color:$four;
+    }
+    
+    .top-nav{
+        background:$one;
+        position:fixed;
+        transition:all ease-out 0.5s;
+        z-index:4;
+        margin:0;
+        padding:0.5em;
+        width:100%;
+    }
+    
+    .menu-hidden{
+    transform:translateY(-200px);
+    }
+    
+    .menu-visible{
+    transform:translateY(0px);
+    }
+}
+
+#modal{
+    background:$one;
+    margin:auto;
+    width:70%;
+}
+
+
+
+
+#modal-menu{
+    position:fixed;
+    background: transparentize(black,0.2);
+    width:100%;
+    height:100%;
+    z-index:6;
+    padding-top:30px;
+    &.off{
+        display:none;
+    }
+    
+    .list{
+        
+    }
+    
+    .logo{
+       width:100%;
+        margin:auto;
+        display:block;
+        max-width:150px;
+    }
+    
+    .menu{
+        margin:auto;
+    }
+    
+    .nav-link{
+        text-align:center;
+        color:$two;
+        border-bottom:1px solid $blue-1;
+        padding:1em 0;
+        
+        &.active,
+        &:hover{
+        color:$one;
+        }
+        
+        &:nth-last-child(1){
+            border-bottom:none;
+        }
+    }
+    
+}
+
+
+
+.nav-link{
+    font-weight:bold;
+    transition:all 0.3s;
+    &:hover{
+        color:$two;
+    }
+    &.active{
+        color:$two;
+    }
+}
+
+
+
+.top-nav {
+    a{
+        text-transform: uppercase;
+    }
+}

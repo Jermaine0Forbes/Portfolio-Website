@@ -247,7 +247,8 @@ img {
 }
 
 .panel-content {
-    background-color: #EDEFF2;
+/*    background-color: #EDEFF2;*/
+    background-color: hotpink;
     padding: 16px;
 }
 

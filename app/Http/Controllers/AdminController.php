@@ -13,6 +13,7 @@ use App\MadeWith;
 use App\Image;
 use Carbon\Carbon;
 use App\Project;
+use App\Contact;
 
 class AdminController extends Controller
 {
@@ -37,7 +38,36 @@ class AdminController extends Controller
         return view('admin',["Title" => $title]);
     }
 
-    public function portfolio(){
+    public function contact(){
+        $contact = Contact::select("title","body")->latest()->first();
+        $nothing = "nothing";
+        $title = "Edit Contact Page";
+        if(empty($contact)){
+            $contact = (object)[];
+            $contact->title = $nothing;
+            $contact->body = $nothing;
+        }
+        $data_array = [
+            "Title" => $title,
+            "title" => $contact->title ,
+            "body" => $contact->body
+        ];
+
+        return view("admin-contact",$data_array);
+    }
+
+
+    public function contactStore(Request $r){
+        $contact  = new Contact;
+        $contact->title = $r->title;
+        $contact->body = $r->body;
+        $contact->save();
+
+        return redirect("/contact");
+
+    }
+
+    public function portfolioIndex(){
 
         $project = Project::orderBy('pro_id','desc')->get();
         $id = Project::orderBy('pro_id','desc')->pluck("pro_id")->first();

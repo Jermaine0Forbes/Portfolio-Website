@@ -22,12 +22,17 @@ nav {
 
 
 aside{
-    position:absolute;
-    left:0;
-    min-width:200px;
-    width:100%;
-    max-width:300px;
-    height:100%;
+    // position:absolute;
+    // left:0;
+
+    &#admin-panel{
+        min-width:200px;
+        width:100%;
+        max-width:300px;
+        min-height:100vh;
+        height:auto;
+    }
+
 
     li{
         border-bottom: white 4px solid;

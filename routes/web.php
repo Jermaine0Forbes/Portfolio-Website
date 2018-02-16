@@ -17,6 +17,10 @@ Route::get('/skills', 'SkillController@index')->name('skills');
 
 Route::get('/about', 'AboutController@index')->name('about');
 
+Route::get('/contact', 'ContactController@index')->name('contact');
+
+Route::post('/contact', 'ContactController@send')->name('contact.submit');
+
 Route::get('/test', 'TestController@index')->name('test');
 
 Auth::routes();
@@ -28,9 +32,17 @@ Route::get('/skills', 'AdminController@skills')->name('admin.skills');
 Route::post('/skills', 'AdminController@skillsStore')->name('admin.skills.submit');
 
 // PORTFOLIO
-Route::get('/portfolio', 'AdminController@portfolio')->name('admin.portfolio');
+Route::get('/portfolio', 'AdminController@portfolioIndex')->name('admin.portfolio');
 Route::get('/portfolio/{id}', 'AdminController@portfolioPage')->name('admin.portfolio.page');
 Route::post('/portfolio/{id}', 'AdminController@portfolioPageStore')->name('admin.portfolio.page.submit');
+
+// ABOUT
+Route::get('/about', 'AdminController@about')->name('admin.about');
+Route::post('/about', 'AdminController@aboutStore')->name('admin.about.submit');
+
+// CONTACT
+Route::get('/contact', 'AdminController@contact')->name('admin.contact');
+Route::post('/contact', 'AdminController@contactStore')->name('admin.contact.submit');
 
 // LOGIN
   Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
@@ -46,9 +58,7 @@ Route::post('/portfolio/{id}', 'AdminController@portfolioPageStore')->name('admi
   Route::get('/register', 'AdminLoginController@showRegisterForm')->name('admin.register');
   Route::post('/register', 'AdminLoginController@register')->name('admin.register.submit');
 
-  // ABOUT
-  Route::get('/about', 'AdminController@about')->name('admin.about');
-  Route::post('/about', 'AdminController@aboutStore')->name('admin.about.submit');
+
 
   // Password reset routes
   Route::post('/password/email', 'AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

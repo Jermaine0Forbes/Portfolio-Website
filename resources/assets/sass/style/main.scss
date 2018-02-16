@@ -1,0 +1,227 @@
+
+
+/*==============
+    MAIN
+=============*/
+
+#about,
+#skill{
+    display:none;
+}
+
+
+
+#about.visible,
+#skill.visible{
+    display:block;
+}
+
+
+
+button{
+    &#left{
+       left:5%;
+     }
+
+     &#right{
+         right:5%;
+      }
+
+    &.menu-btn{
+      color:$one;
+      position:fixed;
+      top:2%;
+      right:5%;
+      background:transparent;
+      border-style:none;
+      z-index: 10;
+      font-size:1.5em;
+      color:#3E4F89;
+      &:hover{
+          cursor:pointer;
+      }
+    }
+    
+
+      &.direction{
+        position:absolute;
+        top:50%;
+        padding:1em;
+        border-radius:50%;
+        height:45px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:45px;
+        border-style:none;
+        z-index:5;
+        background:$l-grey;
+        opacity:0.5;
+        transition:all 0.3s;
+        &:hover{
+          background:$l-grey;
+          opacity:1;
+        }
+
+        .fa{
+            line-height: 0.8;
+        }
+
+        i{
+          color:white;
+        }
+      }
+}
+
+
+#wrapper{
+  background:black;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+  color:$one;
+
+}
+
+/*==============
+    SKILLS
+=============*/
+
+.contact-links{
+    list-style:none;
+    a{
+        color:$one;
+        &:hover{
+            text-decoration:none;
+            color:$two;
+        }
+    }
+}
+
+
+
+.skill-bar{
+    border:5px solid $one;
+    width:100px;
+    height:100px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    margin:auto;
+
+    .tiny{
+        font-size: 12px;
+        display: inline-block;
+        margin-left: -8px;
+    }
+}
+
+.tiny{
+    font-size: 12px;
+    display: inline-block;
+    margin-left: -8px;
+}
+
+.progressbar-text{
+    font-size:2.2rem;
+    font-weight:500;
+}
+
+.progress-container{
+    width:150px;
+    height:150px;
+    margin:auto;
+}
+
+
+
+/*==============
+    ABOUT
+=============*/
+
+.border-pic{
+    border:solid $one 5px;
+    width:100%;
+    border-radius:50%;
+    overflow:hidden;
+    margin:auto;
+    max-width:300px;
+}
+
+
+/*==============
+    CONTACT
+=============*/
+
+#contact{
+    
+    a{
+        background:white;
+        color:$blue-2;
+        transition:all 0.5s;
+        padding:8px;
+        font-size:0.8em;
+        text-transform:capitalize;
+        width:100%;
+        max-width:180px;
+        display:inline-block;
+        border: 4px solid white;
+        &:hover{
+            color:white;
+            background:transparent;
+            text-decoration: none;
+        }
+    }
+
+    .btn{
+        font-size:1.2em;
+        color:white;
+        background-color:transparent;
+        border: 3px solid white;
+        max-width:200px;
+        margin:auto;
+        text-transform: capitalize;
+        transition:all 0.3s;
+        border-radius:22px;
+        display:block;
+        margin-top:3em;
+        &:hover{
+            background-color:white;
+            color:$three;
+        }
+    }
+
+    
+    .contact-group{
+        margin:1.3em auto;
+        text-align:center;
+        margin-top:0;
+        display:flex;
+        justify-content: center;
+    }
+    
+    .fa{
+        font-size:1.5em;
+        padding:0 5px;
+    }
+    
+    .link-left{
+        border-radius:25px 0 0 25px;
+        
+    }
+    
+    .link-mid{
+        border-radius:0;
+    }
+    
+    .link-right{
+        border-radius:0 25px 25px 0;
+    }
+    
+    .summary{
+        margin: 2em auto;
+        margin-top:0;
+    }
+}
+

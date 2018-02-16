@@ -1,0 +1,18 @@
+/*==============
+    FOOTER
+=============*/
+
+footer{
+    position:absolute;
+    bottom:0;
+    background:$one;
+    color:$four;
+    a{
+        color:$four;
+        font-size:22px;
+        &:hover{
+            color:$two;
+        }
+    }
+}
+
