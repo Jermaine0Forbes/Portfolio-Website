@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Project extends Model
 {
@@ -14,6 +15,32 @@ class Project extends Model
     protected $primaryKey = "pro_id";
     const CREATED_AT = 'createdAt';
     const UPDATED_AT = 'updatedAt';
+    
+    public static function saveProject($id,$r){
+        
+        if (Project::where("pro_id",$id)->exists()) {
+            $updated_data = [
+                "name" => $r->name,
+                "summary" => $r->summary,
+                "createdAt" => new Carbon($r->created),
+                "stamp" => new Carbon(),
+                "code" => $r->code,
+                "link" => $r->link
+            ];
+
+            Project::where("pro_id",$id)->update($updated_data);
+        }else{
+
+            $data = new Project;
+            $data->pro_id = $id;
+            $data->name = $r->name;
+            $data->summary = $r->summary;
+            $data->createdAt = new Carbon($r->created);
+            $data->code = $r->code;
+            $data->link = $r->link;
+            $data->save();
+        }
+    }
 
     public function framework(){
 
@@ -27,20 +54,17 @@ class Project extends Model
 
     public function image(){
 
-        // return $this->hasMany('App\Image', 'pro_id', 'pro_id');
         return $this->hasMany(Image::class,'pro_id');
-        // return $this->hasMany(Image::class);
-        // return $this->hasMany('App\Image');
     }
 
     public function mediumImage(){
 
-        return $this->image()->select('image')->whereRaw('image like "%medium%" ')->get();
+        return $this->image()->select('image')->where("size","medium")->get();
     }
 
     public function smallImage(){
 
-        return $this->image()->select('image')->whereRaw('image like "%small%" ')->get();
+        return $this->image()->select('image')->where("size","small")->get();
     }
     
 

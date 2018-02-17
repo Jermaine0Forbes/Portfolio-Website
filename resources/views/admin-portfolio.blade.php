@@ -23,8 +23,8 @@
                                         <a href="/admin/portfolio/{{$pro->pro_id}}">{{$pro->name}}</a>
                                     </td>
                                     <td>{{$pro->pro_id}}</td>
-                                    <td>{{$pro->createdAt->format("M/d/Y")}}</td>
-                                    <td>{{$pro->updatedAt->format("M/d/Y")}}</td>
+                                    <td>{{$pro->createdAt->format("M d, Y")}}</td>
+                                    <td>{{$pro->updatedAt->format("M d, Y")}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

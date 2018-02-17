@@ -72,7 +72,6 @@ class AdminController extends Controller
         $project = Project::orderBy('pro_id','desc')->get();
         $id = Project::orderBy('pro_id','desc')->pluck("pro_id")->first();
         $Title = "Edit Home Page";
-        // dd($id);
         $num = $id+1;
 
         $data_array = [
@@ -118,132 +117,20 @@ class AdminController extends Controller
         $lib_count = $r->library_total;
         $med_count = $r->medium_total;
         $small_count = $r->small_total;
-
-        if (Project::where("pro_id",$id)->exists()) {
-            $updated_data = [
-                "name" => $r->name,
-                "summary" => $r->summary,
-                "createdAt" => new Carbon($r->created),
-                "stamp" => new Carbon(),
-                "code" => $r->code,
-                "link" => $r->link
-            ];
-
-            Project::where("pro_id",$id)->update($updated_data);
-        }else{
-
-            $data = new Project;
-            $data->pro_id = $id;
-            $data->name = $r->name;
-            $data->summary = $r->summary;
-            $data->createdAt = new Carbon($r->created);
-            $data->code = $r->code;
-            $data->link = $r->link;
-            $data->save();
-        }
-
-        for ($i=0; $i < $frame_count ; $i++) {
-             $num = $i+1;
-            if(Framework::where('framework',$r->input("framework-{$num}"))->where("pro_id", $id)->exists()){
-
-                $updated_data = [
-                 "pro_id" => $id,
-                 "framework" => $r->input("framework-{$num}")
-                ];
-
-                Framework::where('framework',$r->input("framework-{$num}"))->where("pro_id", $id)->update($updated_data);
-
-            }else{
-               $frame = new Framework;
-               $frame->pro_id = $id;
-               $frame->framework = $r->input("framework-{$num}");
-               $frame->save();
-            }
-
-        }
-
-        for ($i=0; $i < $lang_count ; $i++) {
-             $num = $i+1;
-            if(MadeWith::where('language',$r->input("language-{$num}"))->where("pro_id", $id)->exists()){
-
-                $updated_data = [
-                 "pro_id" => $id,
-                 "language" => $r->input("language-{$num}")
-                ];
-
-                MadeWith::where('language',$r->input("language-{$num}"))->where("pro_id", $id)->update($updated_data);
-
-            }else{
-               $data = new MadeWith;
-               $data->pro_id = $id;
-               $data->language = $r->input("language-{$num}");
-               $data->save();
-            }
-
-        }
-
-        for ($i=0; $i < $lib_count ; $i++) {
-             $num = $i+1;
-            if(Library::where('library',$r->input("library-{$num}"))->where("pro_id", $id)->exists()){
-
-                $updated_data = [
-                 "pro_id" => $id,
-                 "library" => $r->input("library-{$num}")
-                ];
-
-                Library::where('library',$r->input("library-{$num}"))->where("pro_id", $id)->update($updated_data);
-
-            }else{
-               $data = new Library;
-               $data->pro_id = $id;
-               $data->library = $r->input("library-{$num}");
-               $data->save();
-            }
-
-        }
+        
+        Project::saveProject($id,$r);
 
 
-        for ($i=0; $i < $med_count ; $i++) {
-             $num = $i+1;
-            if(Image::where('image',$r->input("medium-{$num}"))->where("pro_id", $id)->exists()){
-
-                $updated_data = [
-                 "pro_id" => $id,
-                 "image" => $r->input("medium-{$num}")
-                ];
-
-                Image::where('image',$r->input("medium-{$num}"))->where("pro_id", $id)->update($updated_data);
-
-            }else{
-               $data = new Image;
-               $data->pro_id = $id;
-               $data->image = $r->input("medium-{$num}");
-               $data->save();
-            }
-
-        }
+        Framework::saveFramework($id,$frame_count,$r);
 
 
-        for ($i=0; $i < $small_count ; $i++) {
-             $num = $i+1;
-            if(Image::where('image',$r->input("small-{$num}"))->where("pro_id", $id)->exists()){
+        MadeWith::saveLanguages($id,$lang_count,$r);
+        
+        
+        Library::saveLibraries($id,$lib_count,$r);
 
-                $updated_data = [
-                 "pro_id" => $id,
-                 "image" => $r->input("small-{$num}")
-                ];
 
-                Image::where('image',$r->input("small-{$num}"))->where("pro_id", $id)->update($updated_data);
-
-            }else{
-               $data = new Image;
-               $data->pro_id = $id;
-               $data->image = $r->input("small-{$num}");
-               $data->save();
-            }
-
-        }
-
+        Image::saveImages($id, $med_count, $small_count, $r);
 
 
 
