@@ -34,7 +34,7 @@
                         <li class="nav-item"><a  href="{{route('admin.portfolio')}}"><span class="fa fa-newspaper-o"></span> Portolio</a></li>
                         <li class="nav-item"><a  href="{{route('admin.skills')}}"><span class="fa fa-newspaper-o"></span> Skills</a></li>
                         <li class="nav-item"><a  href="{{route('admin.about')}}"><span class="fa fa-newspaper-o"></span> About</a></li>
-                        <li class="nav-item"><a  href="{{route('admin.contact')}}"><span class="fa fa-newspaper-o"></span> Contact</a></li>
+                        <li class="nav-item"><a  href="{{route('admin.register')}}"><span class="fa fa-newspaper-o"></span> Create Admin</a></li>
                     </ul>
                 </aside>
                 <div class="ml-auto col-md-10">

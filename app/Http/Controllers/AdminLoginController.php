@@ -42,25 +42,5 @@ class AdminLoginController extends Controller
         return redirect("/");
     }
 
-    public function showRegisterForm()
-    {
-      return view('auth.admin-register');
-    }
-
-    public function register(Request $req){
-
-        $this->validate($req,[
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-
-        Admin::create([
-            'name' => $req->name,
-            'email' => $req->email,
-            'password' => bcrypt($req->password),
-        ]);
-
-        return redirect()->intended(route('admin.dashboard'));
-    }
+    
 }

@@ -38,33 +38,26 @@ class AdminController extends Controller
         return view('admin',["Title" => $title]);
     }
 
-    public function contact(){
-        $contact = Contact::select("title","body")->latest()->first();
-        $nothing = "nothing";
-        $title = "Edit Contact Page";
-        if(empty($contact)){
-            $contact = (object)[];
-            $contact->title = $nothing;
-            $contact->body = $nothing;
-        }
-        $data_array = [
-            "Title" => $title,
-            "title" => $contact->title ,
-            "body" => $contact->body
-        ];
-
-        return view("admin-contact",$data_array);
+    public function showRegisterForm()
+    {
+      return view('auth.admin-register');
     }
 
+    public function register(Request $req){
 
-    public function contactStore(Request $r){
-        $contact  = new Contact;
-        $contact->title = $r->title;
-        $contact->body = $r->body;
-        $contact->save();
+        $this->validate($req,[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
 
-        return redirect("/contact");
+        Admin::create([
+            'name' => $req->name,
+            'email' => $req->email,
+            'password' => bcrypt($req->password),
+        ]);
 
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     public function portfolioIndex(){

@@ -40,23 +40,19 @@ Route::post('/portfolio/{id}', 'AdminController@portfolioPageStore')->name('admi
 Route::get('/about', 'AdminController@about')->name('admin.about');
 Route::post('/about', 'AdminController@aboutStore')->name('admin.about.submit');
 
-// CONTACT
-Route::get('/contact', 'AdminController@contact')->name('admin.contact');
-Route::post('/contact', 'AdminController@contactStore')->name('admin.contact.submit');
-
 // LOGIN
-  Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
-  Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
+Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
 
-  // DASHBOARD
-  Route::get('/', 'AdminController@index')->name('admin.dashboard');
+// DASHBOARD
+Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
-  // LOGOUT
-  Route::post('/logout', 'AdminLoginController@logout')->name('admin.logout');
+// LOGOUT
+Route::post('/logout', 'AdminLoginController@logout')->name('admin.logout');
 
-  // REGISTER
-  Route::get('/register', 'AdminLoginController@showRegisterForm')->name('admin.register');
-  Route::post('/register', 'AdminLoginController@register')->name('admin.register.submit');
+// REGISTER
+Route::get('/register', 'AdminController@showRegisterForm')->name('admin.register');
+Route::post('/register', 'AdminController@register')->name('admin.register.submit');
 
 
 
