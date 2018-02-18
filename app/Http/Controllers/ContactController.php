@@ -42,4 +42,21 @@ class ContactController extends Controller
         
         return redirect("/");
     }
-}
+
+
+    public function preview(){
+
+        $data =[
+            "subject" => "I want to have sex",
+            "email" => "skivac3@gmail.com",
+            "body" => "Man, I want to fuck a big booty bitch soooooo bad!"
+        ];
+        
+       $mail = new sendMark($data);
+       $mail = $mail->build();
+       return $mail->buildView()["html"];
+
+
+    }
+
+}// end of class

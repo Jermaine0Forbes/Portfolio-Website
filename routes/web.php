@@ -19,6 +19,8 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 
+Route::get('/contact/preview', 'ContactController@preview')->name('preview');
+
 Route::post('/contact', 'ContactController@send')->name('contact.submit');
 
 
