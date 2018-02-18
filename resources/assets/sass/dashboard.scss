@@ -3,6 +3,8 @@
 ====================*/
 
 
+
+
 nav {
 
     a{
@@ -18,6 +20,28 @@ nav {
             padding-left:0.5em;
         }
     }
+}
+
+.no-radius{
+    border-radius:0;
+}
+
+.panel{
+    
+    .btn{
+
+       border-radius:0;
+    }
+
+    .table{
+
+        td{
+            font-size:0.8em;        
+        }
+    }
+
+
+
 }
 
 

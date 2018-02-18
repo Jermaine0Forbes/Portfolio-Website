@@ -112,8 +112,18 @@ $(document).ready( function(){
 
 })//right on
 
-    
-     
+function Slide(){
+
+  function startSlide(){
+
+    console.log("something is happening");
+  }
+
+
+  return {start:startSlide};
+}    
+
+$slide = new Slide();     
 
 
   $(window).resize(function(){

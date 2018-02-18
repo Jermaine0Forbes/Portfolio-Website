@@ -82,6 +82,7 @@ function belowMobile () {
 
  checkMobile();
 
+$slide.start();
     
 $(window).on("resize",function(){
     checkMobile();

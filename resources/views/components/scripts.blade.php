@@ -1,6 +1,8 @@
 
 <script  type="text/javascript" >
-    var slideNo = 1;
+    var 
+    slideNo = 1,
+    $slide;
     $.fn.extend({
     animateCss: function (animationName) {
     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
@@ -20,3 +22,4 @@
     <script src={{asset("/js/other-pages.js")}} ></script>
 @endif
 <script src={{asset("/js/mobile.js")}} ></script>
+<script src={{asset("/js/address.js")}} ></script>

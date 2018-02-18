@@ -14,6 +14,7 @@ use App\Image;
 use Carbon\Carbon;
 use App\Project;
 use App\Contact;
+use App\Address;
 
 class AdminController extends Controller
 {
@@ -35,7 +36,15 @@ class AdminController extends Controller
     public function index()
     {
         $title = "Dashboard";
-        return view('admin',["Title" => $title]);
+
+        $address = Address::latest()->limit(50)->get();
+
+        $data_array = [
+        "Title" => $title,
+        "address" => $address,
+        ];
+
+        return view('admin',$data_array);
     }
 
     public function showRegisterForm()

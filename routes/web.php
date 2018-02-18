@@ -21,6 +21,9 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::post('/contact', 'ContactController@send')->name('contact.submit');
 
+
+Route::post('/', 'AddressController@store');
+
 Route::get('/test', 'TestController@index')->name('test');
 
 Auth::routes();
