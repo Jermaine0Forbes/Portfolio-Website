@@ -4,5 +4,9 @@
   "/css/admin.css": "/css/admin.css",
   "/mix.js": "/mix.js",
   "/js/admin.js": "/js/admin.js",
-  "/css/style.css": "/css/style.css"
+  "/css/style.css": "/css/style.css",
+  "/resources/views/vendor/html/themes/my-theme.css": "/resources/views/vendor/html/themes/my-theme.css",
+  "/resources/views/vendor/mail/html/themes/my-theme.css": "/resources/views/vendor/mail/html/themes/my-theme.css",
+  "/css/my-theme.css": "/css/my-theme.css",
+  "/../resources/views/vendor/mail/html/themes/my-theme.css": "/../resources/views/vendor/mail/html/themes/my-theme.css"
 }

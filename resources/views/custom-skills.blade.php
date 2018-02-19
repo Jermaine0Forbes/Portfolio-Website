@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 
 @section('main')
-    <div id="skill" class="container page-content">
+    <div id="" class="container page-content">
       <div class="row justify-content-center">
         <div class="col-sm-8 pad padH">
-            <h2 class="text-center">{{$title}}</h2>
+            <h2 class="text-center emerge" data-emergence="hidden">{{$title}}</h2>
             <div id="frontend" class="row web-skills">
-                <div class="fluid">
+                <div class="fluid emerge" data-emergence="hidden">
                     <p>
                         {{$summary}}
                     </p>

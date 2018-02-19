@@ -13,6 +13,9 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    protected $ignore = ["104.182.148.255"];
+    
     public function index()
     {
         //
@@ -28,23 +31,29 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        $add = new Address();
-        $add->ip = $request->ip();
-        $add->path = $request->path;
-        $add->screen_height = $request->height;
-        $add->screen_width = $request->width;
-         $add->country = $request->country;
-         $add->zip = $request->zip;
-         $add->region = $request->region;
-         $add->city = $request->city;
-        $add->save();
         
-         $response = array(
-            'status' => 'success',
-            'msg' => 'ip created successfully',
-        );
         
-        return $response["msg"];
+        if( in_array( $request->ip(), $this->ignore)){
+            
+            $add = new Address();
+            $add->ip = $request->ip();
+            $add->path = $request->path;
+            $add->screen_height = $request->height;
+            $add->screen_width = $request->width;
+            $add->country = $request->country;
+            $add->zip = $request->zip;
+            $add->region = $request->region;
+            $add->city = $request->city;
+            $add->save();
+
+             $response = "hello Jermaine";
+            
+        }else{
+            $response = "address stored";
+        }
+        
+        
+        return $response;
         
     }
 

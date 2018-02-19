@@ -1,38 +1,22 @@
 $(document).ready( function(){
 
+    
+// CLASS SLIDE    
+function Slide(){
+    
+    // VARIABLES THAT HOLD INFORMATION FROM THE PORTFOLIO PAGE
+  var 
+  slides = document.getElementsByClassName('slide').length,
+  slider = ".slider",
+  width =  ($(window).width()*slides) ,
+  right = "button#right",
+  left = "button#left",
+  slide  = ".slide",
+  fraction = (100 / slides)*0.01,
+  currentWidth = width,
+  newPos = 0,
+  slideWidth = width * fraction;
 
-// VARIABLES THAT HOLD INFORMATION FROM THE PORTFOLIO PAGE
-  var slides = document.getElementsByClassName('slide').length,
-      slider = ".slider",
-      about = document.getElementsByClassName('about-block'),
-      aboutInterval,
-      aboutCounter = 0,
-      width =  ($(window).width()*slides) ,
-      right = "button#right",
-      left = "button#left",
-      slide  = ".slide",
-      fraction = (100 / slides)*0.01,
-      currentWidth = width,
-      newPos = 0,
-      proTitle = $('.project-title h4 a'),
-      id ,
-      projects = $('.projects'),
-      slideWidth = width * fraction;
-      $(slider).css({"width": width+"px"});
-
-
-
-/* CONTROLLING THE TABS ON THE PORTFOLIO PAGE    */
-      proTitle.on('click', function(){
-         id = $(this).attr('id');
-
-         proTitle.removeClass('active');
-
-         projects.hide();
-         $('.projects.'+id).slideDown();
-          $(this).addClass('active');
-
-      })
 
 
 
@@ -52,7 +36,7 @@ $(document).ready( function(){
   }
 
 // INITIATES THE PAGINATION BUTTONS TO BE DISPLAYED ON THE PORTFOLIO PAGE
-  (function createPaginationButtons(){
+  function createPaginationButtons(){
 
     var divs = '';
     var y = 0;
@@ -63,13 +47,23 @@ $(document).ready( function(){
     $('.pagination').append(divs);
     adjustPaginationButtons();
     activeBtn();
-  })();
-
-  $(slide).css({"width": slideWidth+"px"});
+  };
 
 
+// MOVES THE SLIDE FORWARD OR BACK    
+function moveSlide(){
+  newPos = (slideNo -1) * (-slideWidth);
+ $(slider).css({'transform' : "translateX("+newPos+"px)"})
 
-// WHEN THE PAGINATION BUTTONS ARE CLICKED IT WILL CHANGE THE SLIDE TO THE RIGHT LOCATION
+}
+  
+// ACTIVATES THE PAGINATION
+function activatePagination(){
+    
+    
+   createPaginationButtons(); 
+    
+    // WHEN THE PAGINATION BUTTONS ARE CLICKED IT WILL CHANGE THE SLIDE TO THE RIGHT LOCATION
   $('.pagination-button').on('click', function(){
      var num = $(this).attr('data-slide');
        slideNo = num;
@@ -77,19 +71,21 @@ $(document).ready( function(){
      $(slider).css({'transform' : "translateX("+newPos+"px)"})
      activeBtn();
    })
+    
+}
 
-
-// WHEN THE LEFT BUTTON ON THE PORTFOLIO PAGE IS CLICKED IT WILL MOVE TO THE NEXT SLIDE
+// ACTIVATES THE LEFT AND RIGHT BUTTONS   
+function activateSliderBtns(){
+    
+    // WHEN THE LEFT BUTTON ON THE PORTFOLIO PAGE IS CLICKED IT WILL MOVE TO THE NEXT SLIDE
   $(left).on('click', function(){
     slideNo--;
     if( slideNo != 0){
-        newPos = (slideNo -1) * (-slideWidth);
-     $(slider).css({'transform' : "translateX("+newPos+"px)"})
+     moveSlide();
 
     }else{
       slideNo = slides;
-      newPos = (slideNo -1) * (-slideWidth);
-     $(slider).css({'transform' : "translateX("+newPos+"px)"})
+     moveSlide();
     }
     activeBtn();
 
@@ -97,37 +93,26 @@ $(document).ready( function(){
   })
 
 
-// WHEN THE RIGHT BUTTON ON THE PORTFOLIO PAGE IS CLICKED IT WILL MOVE TO THE NEXT SLIDE
-  $(right).on('click', function(){
-    slideNo++;
-    if(slideNo < slides+1){
-       newPos = (slideNo-1) * (- slideWidth);
-     $(slider).css({'transform' : "translateX("+newPos+"px)"})
-    }else{
-      slideNo =1;
-      newPos = (slideNo-1) * (- slideWidth);
-     $(slider).css({'transform' : "translateX("+newPos+"px)"})
-    }
-    activeBtn();
+    // WHEN THE RIGHT BUTTON ON THE PORTFOLIO PAGE IS CLICKED IT WILL MOVE TO THE NEXT SLIDE
+      $(right).on('click', function(){
+        slideNo++;
+        if(slideNo < slides+1){
+         moveSlide();
+        }else{
+          slideNo =1;
+         moveSlide();
+        }
+        activeBtn();
 
-})//right on
-
-function Slide(){
-
-  function startSlide(){
-
-    console.log("something is happening");
-  }
-
-
-  return {start:startSlide};
+    })//right on
+    
 }    
+    
 
-$slide = new Slide();     
-
-
-  $(window).resize(function(){
-    width = ($(window).width()*slides);
+// RESIZES THE SLIDER
+function resizeSlide(){
+    
+     width = ($(window).width()*slides);
     $(slider).css({"width": width+"px"});
     currentWidth = width * fraction;
     slideWidth = currentWidth;
@@ -139,11 +124,41 @@ $slide = new Slide();
 
     setTimeout (function(){
       $(slider).css({ "transition-duration" :"0.3s"});}, 500);
+    
+}
 
-      
+// ACTIVATES ALL THE COMPONENTS OF THE SLIDER
+  function startSlide(){
+     $(slider).css({"width": width+"px"});
+     activatePagination();
+     $(slide).css({"width": slideWidth+"px"});
+      activateSliderBtns();
+
+    console.log("something is happening");
+  }
+    
+ 
 
 
-});
+  return {
+      start:startSlide, 
+      adjustBtns:adjustPaginationButtons,
+      resize:resizeSlide,
+      number:slideNo,
+        };
+}// Class Slide    
+    
+    
+
+
+
+
+$slide = new Slide(); 
+
+$slide.start();
+
+
+  
 
 
 

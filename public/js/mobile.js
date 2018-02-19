@@ -1,6 +1,9 @@
 $(document).ready(function () {
     
-   var 
+// CLASS MOBILE  
+function Mobile() {
+    
+ var 
       windowWidth ,
       menuBtn = $("button.menu-btn"),
       menuVisible = "menu-visible",
@@ -20,6 +23,8 @@ $(document).ready(function () {
       }
   }
     
+    
+    
     function aboveMobile () {
     if (isOpen) {
         activateBtn();
@@ -33,9 +38,10 @@ $(document).ready(function () {
 
 }
     function removeModal(){
-        let result = modal.addClass('on');
+        let result = modal.hasClass('on');
         if(result){
             modal.addClass('off').removeClass('on');
+            modal.removeAttr("style");
         }
         
     }
@@ -56,10 +62,21 @@ function belowMobile () {
     }
 
 }
-
-
+              
 /* CONTROLLING THE TOP MENU   */
     menuBtn.on('click', aboveMobile );
+    
+ function slideExists(){
+      let result = document.getElementsByClassName("slider").length;
+      return (result)?true:false;
+};
+
+ function hideMenu(){
+        aboveMobile();
+ }
+
+
+
 
 
   // CHECKS THE WINDOW SIZE IN ORDER TO SEE IF THE WIDTH IS UNDER 576PX
@@ -67,7 +84,7 @@ function belowMobile () {
       windowWidth = $(window).width();
 
       if ( windowWidth < 577 && isMobile == false) {
-          isOpen && menuBtn.trigger('click');
+          isOpen && hideMenu() ;
           menuBtn.off('click');
           menuBtn.on('click', belowMobile )
           isMobile = true;
@@ -80,12 +97,28 @@ function belowMobile () {
       }
   }
 
- checkMobile();
-
-$slide.start();
+ 
     
-$(window).on("resize",function(){
-    checkMobile();
-})
+   function startMobile(){
+        checkMobile();
+        $(window).on("resize",function(){
+            checkMobile();
+            slideExists() && $slide.resize();
+        }); 
+    }
+
+    
+    
+    return {
+        resize:startMobile
+    };
+    
+} 
+    
+var $mobile = new Mobile();
+
+$mobile.resize();
+    
+  
     
 })//ready

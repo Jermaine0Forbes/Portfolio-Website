@@ -52,6 +52,10 @@ class ContactController extends Controller
             "body" => "Man, I want to fuck a big booty bitch soooooo bad!"
         ];
         
+        // $mail = new sendMark(view(), config("mail.markdown"));
+        // dd($mail);
+        // // return $mail->render('email.mark');
+
        $mail = new sendMark($data);
        $mail = $mail->build();
        return $mail->buildView()["html"];

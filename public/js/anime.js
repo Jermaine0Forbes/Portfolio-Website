@@ -2,7 +2,7 @@ $(document).ready(function(){
     var slides = document.getElementsByClassName('slide').length,
         slider = ".slider",
         width =  ($(window).width()*slides) ;
-        console.log(slideNo);
+        //console.log(slideNo);
 
 
         $(".direction").on('click',function(){

@@ -1,17 +1,9 @@
 $(document).ready(function(){
     
-    /* ACTIVATES THE ANIMATION ON THE ABOUT AND SKILL PAGE */
-     function activateAbout(){
-           $(".about-block").animateCss("fadeIn");
-          $('#about').addClass("visible");
-      }
+         emergence.init({ reset:false,elemCushion:0.45});
+         
 
-     function activateSkill(){
-         $("#frontend").animateCss("fadeIn");
-         $("#backend").animateCss("fadeIn");
-         $('#skill').addClass("visible");
-     }
-    activateSkill();
-    activateAbout();
     
 });  //ready
+
+

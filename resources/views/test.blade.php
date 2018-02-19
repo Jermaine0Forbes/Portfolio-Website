@@ -2,63 +2,139 @@
 
 @section('main')
 	<div  class="container page-content">
-        <div class="row justify-content-center">
-            <h2 class="about-block pad" >Contact Me</h2>
+        <div class="col-10 col-sm-8">
+            <div class="fluid">
+                <h3>Experience</h3>
+                <div class="row emerge" data-emergence="hidden">
+                    <div class="fluid"></div>
+                     <h4>Sprout 360 – Miami, Fl</h4>
+                    
+                    <div class="fluid pad-half padV"></div>
+                        <div class="half">
+                            <h4>Web Developer</h4>
+                        </div>
+                        <div class="half">
+                            <h4>January 2018 - Present</h4>
+                        </div>
 
-			<div class="break"></div>
+                    
+                    <div class="fluid"></div>
 
-			<div id="contact" class="col-md-8">
-                
-                <div class="contact-group">
-                    <a class="link-left" href="tel:786-863-0270">
-                        <span class="fa fa-phone"></span> 
-                        786-863-0270
-                    </a>
-                    <a class="link-mid" href="http://bit.ly/2diKuOb">
-                        <span class="fa fa-linkedin"></span> 
-                        linkedin
-                    </a>
-                    <a class="link-right" href="email:jermaine0forbes@gmail.com">
-                        <span class="fa fa-envelope"></span> 
-                        email
-                    </a>
-                </div>
-                
-                <p class="mx-auto fluid-9 text-center summary">
-                    Hey, if you like my work and you want to work together the best way to contact me
-                    is by phone. If you want to do it through email send me a simple message and I will try to get
-                    back to you in less than 48 hours. You can also visit my linkedin page so that we can connect through
-                    there. Other than that, I appreciate you taking a look at my website
-                </p>
-                
+                        <ul>
+                            <li>Developed a CRM application with phpGrid</li>
+                            <li>Created pagination for  a web app through PHP and Wordpress</li>
+                            <li>Used Intro.js to design a step-by-step tutorial walkthrough to use a for a future application</li>
+                    
+                        </ul>
+                </div><!-- row -->
+                <div class="row emerge" data-emergence="hidden">
+                    <div class="fluid"></div>
 
-				<form class="form mx-auto fluid-8" >
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <div class="input-group">
-						
-                        <input class="form-control" type="text" name="subject" placeholder="Enter your Subject..." required >
-					</div>
-                    </div>
-					
-                    <div class="form-group">
-                    <div class="input-group">
+                        <h4>Enroll Media – Miami, Fl</h4>
+                    
+                    <div class="fluid pad-half padV"></div>
+                        <div class="half">
+                            <h4>Web Developer Intern</h4>
+                        </div>
+                        <div class="half">
+                            <h4>January 2018 - Present</h4>
+                        </div>
+
+                    
+                    <div class="fluid"></div>
+
+                        <ul>
+                            <li>
+                                Created the logo within Illustrator
+                            </li>
+                            <li>
+                                Developed a Javascript application to create a responsive sticky header menu
+                            </li>
+                            <li>
+                                Utilized Wordpress to recreate the entire site from scratch
+                            </li>
+                            <li>
+                                Inserting icons from Font Awesome
+                            </li>
+                            <li>
+                                Injected Google Maps  application into the site
+                            </li>
+                            <li>
+                                Designed photos in photoshop that are seen on the site
+                            </li>
+
+                        </ul>
+                </div><!-- row -->
+                <div class="row emerge" data-emergence="hidden">
+                    <div class="fluid"></div>
+
+                        <h4>Corey Consulting – 6900 Yumuri St </h4>
+                    
+                    <div class="fluid pad-half padV"></div>
+                        <div class="half">
+                            <h4>Web Developer Intern</h4>
+                        </div>
+                        <div class="half">
+                            <h4>December 2016 - March 2017</h4>
+                        </div>
+
+                    
+                    <div class="fluid"></div>
+
+                        <ul>
+                            <li>
+                                Developed and migrated old websites to content management systems like Wordpress and Shopify.
+                            </li>
+                            <li>
+                                Built javascript applications to provide more engaging content to clients who wanted their users to be persuaded to sign up to call-to-action forms.
+                            </li>
+                            <li>
+                                Helped launch developed websites into live sites with the use of hosting sites like Go-Daddy.
+                            </li>
+                            <li>
+                                Created banners, logos, and other graphic content to improve the appeal of client websites.
+                            </li>
+                        </ul>
+                </div><!-- row -->
+                <div class="row emerge" data-emergence="hidden">
+                    <div class="fluid"></div>
+                         <h4>Self-Taught Developer </h4>
+                    
+                    <div class="fluid pad-half padV"></div>
+                        <div class="half">
+                            <h4>Web Developer</h4>
+                        </div>
+                        <div class="half">
+                            <h4>January 2011 - Present</h4>
+                        </div>
+
+                    <div class="fluid"></div>
+
                        
-                        <textarea class="form-control " rows="8" name="message" placeholder="Message" required>Enter your Message...
-                        </textarea>
-                    </div>
-                    </div>
-					
-					<div class="form-group">
-						<input class="form-control btn"  type="submit" value="submit">
-					</div>
-				</form>
+                    
+                    <div class="fluid"></div>
+
+                         <ul>
+                            <li>
+                                Around 2011 I became very passionate about web development. This led me to begin teaching myself HTML and CSS based off YouTube Videos
+                            </li>
+                            <li>
+                                I began creating personal and project sites to continue growing
+                            </li>
+                            <li>
+                                In 2012, I decided to enroll at AIU (American International University) and completed a Bachelor’s Degree in Visual Communication and a Specialization in Web Design.
+                            </li>
+                             <li>
+                                During my time at AIU I was involved with many projects utilizing (HTML, CSS, and Javascript)
+                            </li>
+                             <li>
+                                Created banners, logos, and other graphic content to improve the appeal of client websites.
+                            </li>
+                        </ul>
+                    
+                </div><!-- row -->
                 
-
-
-
-			</div>
-
-	    </div>
-	</div>
+            </div>
+        </div>
+	</div><!-- container -->
 @endsection
