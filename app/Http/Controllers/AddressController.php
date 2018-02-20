@@ -31,7 +31,7 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $geo = geoip($request->ip());
         
         if( in_array( $request->ip(), $this->ignore)){
 
@@ -39,7 +39,7 @@ class AddressController extends Controller
             
         }else{
             
-           (empty($request->country))? someData(): allData() ;
+          $response = (empty($geo))? someData(): allData() ;
             
             
         }
@@ -55,12 +55,12 @@ class AddressController extends Controller
         $add->path = $request->path;
         $add->screen_height = $request->height;
         $add->screen_width = $request->width;
-        $add->country = $request->country;
-        $add->zip = $request->zip;
-        $add->region = $request->region;
-        $add->city = $request->city;
+        $add->country = $geo->country;
+        $add->zip = $geo->postal_code;
+        $add->region = $geo->state;
+        $add->city = $geo->city;
         $add->save();
-        $response = "all data stored";
+        return "all data stored";
     }
     
     public function someData(){
@@ -70,7 +70,7 @@ class AddressController extends Controller
         $add->screen_height = $request->height;
         $add->screen_width = $request->width;
         $add->save();
-        $response = "some data stored";
+         return "some data stored";
     }
 
     /**
