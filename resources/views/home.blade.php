@@ -16,7 +16,12 @@
                                <div class="row justify-content-center hidden-md-up">
                                    <div class="col-8 mobile-pic ">
                                        <div class="medium">
-                                           <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="mobile image">
+                                           @if(empty($pro->mediumImage()))
+                                                <img class="img-fluid" src="{{asset('img/default-small.svg')}}" alt="mobile image">
+                                           @else
+                                                <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="mobile image">
+                                           @endif
+                                           
                                        </div>
                                    </div>
                                </div>
@@ -122,7 +127,7 @@
                                   <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="medium image">
                               @else
 
-                                   <img class="img-fluid" src="http://via.placeholder.com/450x450" alt="blank image">
+                                   <img class="img-fluid" src="{{asset('img/default-medium.svg')}}" alt="blank image">
                               @endif
                           </a>
                       </div>
@@ -142,7 +147,7 @@
                               @elseif(sizeof($pro->smallImage()) == 1)
                                   <img class="img-fluid" src="img/{{$pro->smallImage()[0]->image}}" alt="small image">
                               @else
-                                  <img class="img-fluid" src="http://via.placeholder.com/450x450" alt="blank image">
+                                  <img class="img-fluid" src="{{asset('img/default-small.svg')}}" alt="blank image">
                               @endif
                           </a>
                       </div>

@@ -37,7 +37,7 @@ class AdminController extends Controller
     {
         $title = "Dashboard";
 
-        $address = Address::latest()->limit(25)->get();
+        $address = Address::latest()->limit(15)->get();
 
         $data_array = [
         "Title" => $title,

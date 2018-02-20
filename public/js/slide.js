@@ -134,7 +134,6 @@ function resizeSlide(){
      $(slide).css({"width": slideWidth+"px"});
       activateSliderBtns();
 
-    console.log("something is happening");
   }
     
  

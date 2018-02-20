@@ -34,27 +34,43 @@ class AddressController extends Controller
         
         
         if( in_array( $request->ip(), $this->ignore)){
-            
-            $add = new Address();
-            $add->ip = $request->ip();
-            $add->path = $request->path;
-            $add->screen_height = $request->height;
-            $add->screen_width = $request->width;
-            $add->country = $request->country;
-            $add->zip = $request->zip;
-            $add->region = $request->region;
-            $add->city = $request->city;
-            $add->save();
 
              $response = "hello Jermaine";
             
         }else{
-            $response = "address stored";
+            
+           (empty($request->country))? someData(): allData() ;
+            
+            
         }
         
         
         return $response;
         
+    }
+    
+    public function allData(){
+        $add = new Address();
+        $add->ip = $request->ip();
+        $add->path = $request->path;
+        $add->screen_height = $request->height;
+        $add->screen_width = $request->width;
+        $add->country = $request->country;
+        $add->zip = $request->zip;
+        $add->region = $request->region;
+        $add->city = $request->city;
+        $add->save();
+        $response = "all data stored";
+    }
+    
+    public function someData(){
+         $add = new Address();
+        $add->ip = $request->ip();
+        $add->path = $request->path;
+        $add->screen_height = $request->height;
+        $add->screen_width = $request->width;
+        $add->save();
+        $response = "some data stored";
     }
 
     /**
@@ -72,6 +88,6 @@ class AddressController extends Controller
     {
         //
     }
-}
+}//controller 
     
         
