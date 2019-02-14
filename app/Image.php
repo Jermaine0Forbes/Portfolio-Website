@@ -10,47 +10,48 @@ class Image extends Model
     //
 
     protected $primaryKey = 'id';
-	
+
 	private static $save_request;
 	private static $save_id;
 	private static $save_size;
-    
+
     public static function saveImages($id, $med_count, $small_count, $r){
-		
+
 		 self::$save_request = $r;
          self::$save_id = $id;
 
 		$str = "medium-";
 		self::$save_size ="medium";
         Image::createRows($med_count, $str);
-		
+
         $str = "small-";
 		self::$save_size ="small";
         Image::createRows($small_count,$str);
 
     }
-    
+
     public static function createRows($count,$str){
          $r = self::$save_request;
          $id = self::$save_id;
         for ($i=0; $i < $count ; $i++) {
              $num = $i+1;
-			 $str = $str.$num;
-             $result = str_is("default*",$r->input($str));
-            
+
+			       $name = $str.$num;
+             $result = str_is("default*",$r->input($name));
+
             if($result){
-                Image::saveDefault($str);
+                Image::saveDefault($name);
                 $i = $count;
             }else{
-                Image::saveRegular($str);
+                Image::saveRegular($name);
             }
-            
 
-        }
 
-    }
-    
-    
+        }//for
+
+    }//createRows
+
+
     public static function saveDefault($str){
 		$r = self::$save_request;
         $id = self::$save_id;
@@ -61,11 +62,11 @@ class Image extends Model
        $data->image = $r->input($str);
        $data->save();
     }
-    
+
     public static function saveRegular($str){
 		$r = self::$save_request;
          $id = self::$save_id;
-        
+
         if(Image::where('image',$r->input($str))->where("pro_id", $id)->exists()){
 
                 $updated_data = [

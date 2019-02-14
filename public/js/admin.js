@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports) {
 
 var url = window.location.pathname;
@@ -82,6 +82,7 @@ var Admin = /** @class */ (function () {
         }
         else if (this.isPage(skills)) {
             this.skills();
+            console.log("skills bills");
         }
         else if (this.isPage(about)) {
             console.log("about page");
@@ -102,7 +103,8 @@ var Admin = /** @class */ (function () {
             $(id + " input[name='" + name + "']").val(value);
         }
         function getNumber(id) {
-            return $(id).find("input").last().attr("data-number");
+            var value = $(id).find("input").last().attr("data-number") || 0;
+            return value;
         }
         function addField(container, name, data) {
             var field = "\n             <p>\n                <input class=\"form-control\" type=\"text\" data-number=\"" + data + "\" name=\"" + name + "-" + data + "\" value=\"\">\n             </p>\n            ";
@@ -152,7 +154,7 @@ var Admin = /** @class */ (function () {
         }
         function updateDOM() {
             $('[data-toggle="datepicker"]').datepicker({
-                format: "mm-dd-yyyy"
+                format: "yyyy-mm-dd"
             });
             changeNumberRow();
         }
@@ -174,10 +176,10 @@ var dashboard = new Admin();
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(3);
 
 
 /***/ })

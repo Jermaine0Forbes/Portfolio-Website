@@ -17,5 +17,5 @@ const { mix } = require('laravel-mix');
 
 mix.sass('resources/assets/sass/admin.scss', 'public/css')
     .sass('resources/assets/sass/style/style.scss', 'public/css')
-    .sass('resources/assets/sass/mail/my-theme.scss', '../resources/views/vendor/mail/html/themes')
+    // .sass('resources/assets/sass/mail/my-theme.scss', '../resources/views/vendor/mail/html/themes')
     .ts('resources/assets/typescript/admin.ts','public/js');
