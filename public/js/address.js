@@ -2,7 +2,7 @@ $(document).ready(function(){
     
    var ht = $(window).height();
    var wth = $(window).width();
-    var url = "http://ip-api.com/json";
+    var url = "https://ip-api.com/json";
     
     $.get(url, function(response) {
         
@@ -18,9 +18,6 @@ $(document).ready(function(){
            region: r.region,
            zip : r.zip
                    };
-
-        
-
         
           $.ajax(
                {url:"/",
@@ -35,7 +32,22 @@ $(document).ready(function(){
                   console.log("error: "+msg);
                 }
                });
-    }, "json");
+    }, "json")
+    .fail(function(){
+        $.ajax(
+               {url:"/",
+                method:"post", 
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                data:{ height:ht,width:wth,path:window.location.pathname},
+                success:function(data){
+               console.log(data);
+                },
+                error:function(err,msg){
+                  console.log("error: "+msg);
+                }
+               });
+    });
 
 
 
