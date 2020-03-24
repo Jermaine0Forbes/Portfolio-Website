@@ -55,19 +55,19 @@
                                                     <td>
                                                         <select class="form-control" name="rank-{{$skill->id}}">
                                                             <option value="4"
-                                                            @if ($skill->rank == "4")
+                                                            @if ($skill->rank == "familiar")
                                                                 selected
                                                             @endif>Familiar</option>
                                                             <option value="3"
-                                                            @if ($skill->rank == "3")
+                                                            @if ($skill->rank == "competent")
                                                                 selected
                                                             @endif>Competent</option>
                                                             <option value="2"
-                                                            @if ($skill->rank == "2")
+                                                            @if ($skill->rank == "proficient")
                                                                 selected
                                                             @endif>Proficient</option>
                                                             <option value="1"
-                                                            @if ($skill->rank == "1")
+                                                            @if ($skill->rank == "master")
                                                                 selected
                                                             @endif>Master</option>
                                                         </select>
@@ -76,15 +76,15 @@
                                                         <select class="form-control" name="position-{{$skill->id}}">
 
                                                             <option value="1"
-                                                            @if ($skill->position == "1")
+                                                            @if ($skill->position == "front")
                                                                 selected
                                                             @endif>Front</option>
                                                             <option value="2"
-                                                            @if ($skill->position == "2")
+                                                            @if ($skill->position == "back")
                                                                 selected
                                                             @endif>Back</option>
                                                             <option value="3"
-                                                            @if ($skill->position == "3")
+                                                            @if ($skill->position == "other")
                                                                 selected
                                                             @endif>Other</option>
                                                         </select>

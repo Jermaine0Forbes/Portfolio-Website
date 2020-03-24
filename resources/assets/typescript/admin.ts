@@ -46,7 +46,9 @@ class Admin{
         }
 
         function getNumber(id:string):string{
-            return $(id).find("input").last().attr("data-number");
+             let val = $(id).find("input").last().attr("data-number");
+             val = (val > 0)?val:0;
+            return val;
         }
 
         function addField(container:string, name:string, data:any){

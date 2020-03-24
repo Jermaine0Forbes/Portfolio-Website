@@ -11,17 +11,19 @@ class SkillController extends Controller
 {
     public function index(){
 
-    	$skill = Skill::latest()->select("title","summary")->first();
+    	$skill = Skill::latest()->select("title","summary", "updated_at")->first();
     	// dd($skill);
     	$title = $skill->title;
     	$summary = $skill->summary;
+    	$updated = $skill->updated_at;
 
-    	$set = Skillset::get();
+    	$set = Skillset::where("hide",0)->get();
 
     	$data = [
     		"title" => $title,
     		"summary" => $summary,
-    		"set" => $set
+    		"set" => $set,
+    		"updated" => $updated,
     	];
 
         return view('custom-skills', $data);
