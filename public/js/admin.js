@@ -82,6 +82,7 @@ var Admin = /** @class */ (function () {
         }
         else if (this.isPage(skills)) {
             this.skills();
+            console.log("skills bills");
         }
         else if (this.isPage(about)) {
             console.log("about page");
@@ -105,6 +106,7 @@ var Admin = /** @class */ (function () {
             var val = $(id).find("input").last().attr("data-number");
             val = (val > 0) ? val : 0;
             return val;
+
         }
         function addField(container, name, data) {
             var field = "\n             <p>\n                <input class=\"form-control\" type=\"text\" data-number=\"" + data + "\" name=\"" + name + "-" + data + "\" value=\"\">\n             </p>\n            ";
@@ -154,7 +156,7 @@ var Admin = /** @class */ (function () {
         }
         function updateDOM() {
             $('[data-toggle="datepicker"]').datepicker({
-                format: "mm-dd-yyyy"
+                format: "yyyy-mm-dd"
             });
             changeNumberRow();
         }

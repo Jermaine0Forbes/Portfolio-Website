@@ -22,6 +22,7 @@ class Admin{
         }else if (this.isPage(skills)){
 
             this.skills();
+            console.log("skills bills")
 
         }else if(this.isPage(about)){
             console.log("about page")
@@ -49,6 +50,7 @@ class Admin{
              let val = $(id).find("input").last().attr("data-number");
              val = (val > 0)?val:0;
             return val;
+
         }
 
         function addField(container:string, name:string, data:any){
@@ -155,7 +157,7 @@ class Admin{
 
         function updateDOM(){
             (<any>$('[data-toggle="datepicker"]') ).datepicker({
-                format: "mm-dd-yyyy"
+                format: "yyyy-mm-dd"
             });
             changeNumberRow();
         }

@@ -113,31 +113,31 @@
       ]
     });
 
-    window.leUploader = $('#laravel-editor-upload-more').mrUploader({uploadUrl: '/upload'});
-    window.leUploader.on('upload', function(event, data) {
-        image = $('<img />')
-            .attr('src', data.$image.attr('src'))
-            .css({
-                margin: '0 auto',
-                width: '200px',
-                padding: '5px',
-                cursor: 'pointer'
-            }).click(function (event) {
-                var chunk, cursor;
-                var selected = window.lePhotoUploadEvent.getSelection(), content = window.lePhotoUploadEvent.getContent();
-
-                var url = data.response.url;
-                var chunk = '![enter image description here]('+url+' "enter image title here")';
-                var cursor = selected.start;
-
-                window.lePhotoUploadEvent.replaceSelection(chunk);
-                window.lePhotoUploadEvent.setSelection(cursor+2, 30);
-
-                $("#laravel-editor-uploads-modal").modal('hide');
-            });
-
-        $('#laravel-editor-uploads-container').prepend(image);
-    });
+    // window.leUploader = $('#laravel-editor-upload-more').mrUploader({uploadUrl: '/upload'});
+    // window.leUploader.on('upload', function(event, data) {
+    //     image = $('<img />')
+    //         .attr('src', data.$image.attr('src'))
+    //         .css({
+    //             margin: '0 auto',
+    //             width: '200px',
+    //             padding: '5px',
+    //             cursor: 'pointer'
+    //         }).click(function (event) {
+    //             var chunk, cursor;
+    //             var selected = window.lePhotoUploadEvent.getSelection(), content = window.lePhotoUploadEvent.getContent();
+    //
+    //             var url = data.response.url;
+    //             var chunk = '![enter image description here]('+url+' "enter image title here")';
+    //             var cursor = selected.start;
+    //
+    //             window.lePhotoUploadEvent.replaceSelection(chunk);
+    //             window.lePhotoUploadEvent.setSelection(cursor+2, 30);
+    //
+    //             $("#laravel-editor-uploads-modal").modal('hide');
+    //         });
+    //
+    //     $('#laravel-editor-uploads-container').prepend(image);
+    // });
 
     // $("#vinelab-editor-textarea").val("");
 </script>
