@@ -119,7 +119,7 @@ class AdminController extends Controller
         $lib_count = $r->library_total;
         $med_count = $r->medium_total;
         $small_count = $r->small_total;
-        
+
         Project::saveProject($id,$r);
 
 
@@ -127,8 +127,8 @@ class AdminController extends Controller
 
 
         MadeWith::saveLanguages($id,$lang_count,$r);
-        
-        
+
+
         Library::saveLibraries($id,$lib_count,$r);
 
 
@@ -143,8 +143,9 @@ class AdminController extends Controller
 
     public function skills(){
         // $skill  = Skill::latest()->select('title','summary')->get();
-        $skill  = Skill::select('title','summary')->first();
-        $set  = Skillset::get();
+        $skill  = Skill::select('title','summary')->latest()->first();
+        // $set  = Skillset::select("name","rank","position","year","current")->where("hide",0)->get();
+        $set  = Skillset::select("name","rank","position","year","current")->get();
         $nothing = "nothing";
         $title = "Edit Skills Page";
 
@@ -214,6 +215,7 @@ class AdminController extends Controller
                 $set->name = $r->input("name-{$c}");
                 $set->rank = $r->input("rank-{$c}");
                 $set->position = $r->input("position-{$c}");
+                // $set->year = $r->input("year-{$c}");
                 $set->year = new Carbon($r->input("year-{$c}"));
                 $set->current = $r->input("current-{$c}");
                 $set->save();

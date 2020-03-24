@@ -110,9 +110,14 @@
 
                       </div>
 
-                      <div class="medium">
+                 <div class="medium">
                           <a href="{{$pro->link}}">
-                              @if( sizeof($pro->mediumImage()) > 1)
+                              
+                              @if(empty($pro->mediumImage()))
+                                <img class="img-fluid" src="{{asset('img/default-medium.svg')}}" alt="blank image">
+
+                              @else
+                                @if( sizeof($pro->mediumImage()) > 1)
                                   <div class="flex-medium">
                                       <ul class="imgList">
                                           @foreach( $pro->mediumImage() as $data)
@@ -123,18 +128,23 @@
                                       </ul>
                                   </div>
 
-                              @elseif(sizeof($pro->mediumImage()) == 1)
-                                  <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="medium image">
-                              @else
+                                  @else
+                                      <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="medium image">
 
-                                   <img class="img-fluid" src="{{asset('img/default-medium.svg')}}" alt="blank image">
+                                  @endif
                               @endif
+                              
                           </a>
                       </div>
 
                       <div class="small">
                           <a href="{{$pro->link}}">
-                              @if( sizeof($pro->smallImage()) > 1 )
+                              
+                              @if(empty($pro->smallImage()))
+                                <img class="img-fluid" src="{{asset('img/default-small.svg')}}" alt="blank image">
+
+                              @else
+                                @if( sizeof($pro->smallImage()) > 1 )
                                   <div class="flex-small">
                                       <ul class="imgList">
                                           @foreach( $pro->smallImage() as $data)
@@ -143,12 +153,13 @@
                                               </li>
                                           @endforeach
                                       </ul>
-                                  </div>
-                              @elseif(sizeof($pro->smallImage()) == 1)
-                                  <img class="img-fluid" src="img/{{$pro->smallImage()[0]->image}}" alt="small image">
-                              @else
-                                  <img class="img-fluid" src="{{asset('img/default-small.svg')}}" alt="blank image">
+                                      </div>
+                                  @else
+                                      <img class="img-fluid" src="img/{{$pro->smallImage()[0]->image}}" alt="small image">
+                                  
+                                  @endif
                               @endif
+                              
                           </a>
                       </div>
                   </div>

@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('main')
+
 	<div  class="container page-content">
 
     <div class="col-10 col-sm-8">
@@ -63,4 +64,5 @@
 
 
 	</div><!-- container -->
+
 @endsection

@@ -91,7 +91,9 @@
 
 __webpack_require__(2);
 __webpack_require__(1);
-module.exports = __webpack_require__(0);
+__webpack_require__(0);
+(function webpackMissingModule() { throw new Error("Cannot find module \"/home/jermaine/jermaineforbes/resources/assets/sass/mail/my-theme.scss\""); }());
+
 
 
 /***/ })

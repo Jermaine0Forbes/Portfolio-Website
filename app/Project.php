@@ -58,13 +58,19 @@ class Project extends Model
     }
 
     public function mediumImage(){
-
-        return $this->image()->select('image')->where("size","medium")->get();
+        
+        $data = $this->image()->select('image')->where("size","medium")->get();
+        $result = (empty($data) == true)? [false] : $data;
+	
+        return $data;
     }
 
     public function smallImage(){
+        
+        $data = $this->image()->select('image')->where("size","small")->get();
+        $result = (empty($data) == true)? [false] : $data;
 
-        return $this->image()->select('image')->where("size","small")->get();
+        return $data;
     }
     
 
