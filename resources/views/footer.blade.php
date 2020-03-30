@@ -18,10 +18,10 @@
 <div class="@if(Route::is('home')) col-sm-4  col-12 @else col-sm-6 col-12 @endif">
   <div class="social-section center">
       <ul class="link-inline around">
-          <li><a href="http://bit.ly/2diKuOb"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-          <li><a href="https://twitter.com/JFDzine"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-          <li><a href="mailto:jermaine0forbes@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-          <li><a href="https://github.com/Jermaine0Forbes?tab=repositories"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+          <li><a class="action-ajax" data-action="click" data-description="linkedin icon" href="http://bit.ly/2diKuOb"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+          <li><a class="action-ajax" data-action="click" data-description="twitter icon" href="https://twitter.com/JFDzine"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a class="action-ajax" data-action="click" data-description="mail icon" href="mailto:jermaine0forbes@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+          <li><a class="action-ajax" data-action="click" data-description="github icon" href="https://github.com/Jermaine0Forbes?tab=repositories"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
       </ul>
   </div>
 </div>

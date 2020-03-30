@@ -8,17 +8,22 @@ use App\About;
 class AboutController extends Controller
 {
     public function index(){
-        $data = About::latest()->first();
-		
-		$data_array = [
-		"summary"=>$data->summary, 
-		"title"=> $data->title, 
-		"highlight"=> $data->highlight, 
-		"experience"=> $data->experience, 
-		"image"=> $data->image, 
+        $about = About::latest()->first();
+
+		$data = [
+		"summary"=>$about->summary,
+		"header"=> $about->title,
+		"highlight"=> $about->highlight,
+		"experience"=> $about->experience,
+		"image"=> $about->image,
+    "updated"=> $about->updated_at,
+    "keywords" => "fullstack, PHP developer, Laravel, React developer",
+    "title" => "About",
+    "description" => "I am a fullstack developer that currently specializes in PHP, React, Javascript, and ASP.net",
+    "page" => "about",
 		];
 
-        return view("about-page",$data_array);
+        return view("about-page",$data);
 
         // return view('about');
     }

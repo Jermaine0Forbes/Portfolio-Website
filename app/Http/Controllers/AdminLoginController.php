@@ -14,7 +14,14 @@ class AdminLoginController extends Controller
 
     public function showLoginForm()
     {
-      return view('auth.admin-login');
+      $data = [
+        "page" => "login",
+        "description" => "Logging into the account",
+        "keywords" => "login",
+        "title" => "Login",
+      ];
+
+      return view('auth.admin-login', $data);
     }
 
     public function login(Request $request)
@@ -42,5 +49,5 @@ class AdminLoginController extends Controller
         return redirect("/");
     }
 
-    
+
 }

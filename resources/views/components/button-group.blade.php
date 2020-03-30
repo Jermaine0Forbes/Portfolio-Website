@@ -8,10 +8,10 @@
         <i class="fa fa-times" aria-hidden="true"></i>
     </button>
 
-    <button class="direction" id="left">
+    <button class="direction action-ajax" data-action="pressed" data-description="pressed the left button" id="left">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
     </button>
-    <button class="direction" id="right">
+    <button class="direction action-ajax" data-action="pressed" data-description="pressed the right button"id="right">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
     </button>
 

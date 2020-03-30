@@ -103,10 +103,9 @@ var Admin = /** @class */ (function () {
             $(id + " input[name='" + name + "']").val(value);
         }
         function getNumber(id) {
-            var val = $(id).find("input").last().attr("data-number");
+            var val = parseInt($(id).find("input").last().attr("data-number"));
             val = (val > 0) ? val : 0;
             return val;
-
         }
         function addField(container, name, data) {
             var field = "\n             <p>\n                <input class=\"form-control\" type=\"text\" data-number=\"" + data + "\" name=\"" + name + "-" + data + "\" value=\"\">\n             </p>\n            ";

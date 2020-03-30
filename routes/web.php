@@ -25,9 +25,12 @@ Route::post('/contact', 'ContactController@send')->name('contact.submit');
 
 
 // Route::get('/address', 'AddressController@store');
-Route::post('/', 'AddressController@store');
+
 
 Route::get('/test', 'TestController@index')->name('test');
+Route::get('/login', function(){
+  return redirect("admin/login");
+})->name('login');
 
 // Auth::routes();
 

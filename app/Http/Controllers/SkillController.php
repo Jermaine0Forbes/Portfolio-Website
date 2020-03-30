@@ -20,11 +20,15 @@ class SkillController extends Controller
     	$set = Skillset::where("hide",0)->get();
 
     	$data = [
-    		"title" => $title,
+    		"header" => $title,
     		"summary" => $summary,
     		"set" => $set,
     		"updated" => $updated,
-    	];
+        "keywords" => "React, PHP, Javascript, Laravel, ASP.net, MySQL",
+        "title" => "Skills",
+        "description" => "As a web developer here are the current skills I'm specializing in: React, Laravel, ASP.net, Node.js",
+        "page" => "skills",
+      ];
 
         return view('custom-skills', $data);
     }

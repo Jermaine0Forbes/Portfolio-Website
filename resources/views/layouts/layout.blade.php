@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- CSRF Token -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{{$description}}">
+        <meta name="keywords" content="{{$keywords}}">
+        <meta name="page" content="{{$page}}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" href="{{asset('/img/favicon.ico')}}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -20,7 +23,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="{{asset("js/emergence.js")}}"></script>
 
-        <title>Jermaine Forbes</title>
+        <title>Jermaine Forbes | {{$title}}</title>
     </head>
     <body>
         <div id="wrapper">

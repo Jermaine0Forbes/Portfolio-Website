@@ -4,8 +4,8 @@
     <div id="" class="container page-content">
       <div class="row justify-content-center">
         <div class="col-sm-8 pad padH">
-            <h2 class=" emerge" data-emergence="hidden">{{$title}}</h2>
-            <h5 class="mt-4">Last updated: {{$updated->format("F jS, Y")}}</h5>
+            <h2 class=" emerge" data-emergence="hidden">{{$header}}</h2>
+            <h5 class="mt-4 emerge" data-emergence="hidden"><i class="fa fa-calendar-o" aria-hidden="true"></i>  Last updated: {{$updated->format("m/d/Y")}}</h5>
             <div id="frontend" class="row web-skills">
                 <div class="fluid emerge" data-emergence="hidden">
                     <p>

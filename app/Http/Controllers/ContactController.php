@@ -11,35 +11,42 @@ use App\Mail\sendMark;
 class ContactController extends Controller
 {
     //
-    
+
     protected $m;
-    
+
     public function index(){
 
-    	return view("contact");
+      $data = [
+        "keywords" => "Contact page, Connect with me, Email me",
+        "title" => "Contact",
+        "description" => "If you like some of my work and want to contact me here is the page to do so",
+        "page" => "contact",
+      ];
+
+    	return view("contact", $data);
     }
-    
-    
+
+
     public function send(Request $r){
         $data =[
             "subject" => $r->subject,
             "email" => $r->email,
             "body" => $r->message
         ];
-        
+
         $this->m = $data;
-        
+
         Mail::send(new sendMark($data));
-        
+
 //        Mail::send(new mailSent($data));
-        
-        
+
+
 //        Mail::send("email.test",$data,function($message){
 //             $message->to('jermaine0forbes@gmail.com', "jermaine forbes")
 //            ->subject($this->m["subject"]);
 //            $message->from($this->m["email"]);
 //        });
-        
+
         return redirect("/");
     }
 
@@ -47,11 +54,11 @@ class ContactController extends Controller
     public function preview(){
 
         $data =[
-            "subject" => "I want to have sex",
+            "subject" => "this is a subject",
             "email" => "skivac3@gmail.com",
-            "body" => "Man, I want to fuck a big booty bitch soooooo bad!"
+            "body" => "this is a body"
         ];
-        
+
         // $mail = new sendMark(view(), config("mail.markdown"));
         // dd($mail);
         // // return $mail->render('email.mark');

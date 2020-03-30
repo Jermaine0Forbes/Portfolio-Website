@@ -21,7 +21,7 @@
                                            @else
                                                 <img class="img-fluid" src="img/{{$pro->mediumImage()[0]->image}}" alt="mobile image">
                                            @endif
-                                           
+
                                        </div>
                                    </div>
                                </div>
@@ -86,7 +86,10 @@
                               @if (empty($pro->code))
                                   <div class="row justify-content-center no-gutters visit">
                                     <div class="col-sm-6  btn-container">
-                                      <a href="{{$pro->link}}" target="_blank" class="btn btn-primary fluid "> visit site</a>
+                                      <a href="{{$pro->link}}" target="_blank" class="btn btn-primary fluid action-ajax"
+                                         data-action="click" data-description="{{$pro->name}} site">
+                                         visit site
+                                       </a>
                                     </div>
                                   </div>
 
@@ -94,10 +97,16 @@
 
                                   <div class="row justify-content-center no-gutters visit">
                                       <div class="col-sm-6  btn-container">
-                                        <a href="{{$pro->link}}" target="_blank" class="btn btn-primary fluid left"> visit site</a>
+                                        <a href="{{$pro->link}}" target="_blank" class="btn btn-primary fluid left action-ajax"
+                                          data-action="click" data-description="{{$pro->name}} site">
+                                          visit site
+                                        </a>
                                       </div>
                                     <div class="col-sm-6  btn-container">
-                                      <a href="{{$pro->code}}" target="_blank" class="btn btn-primary fluid right "> visit code</a>
+                                      <a href="{{$pro->code}}" target="_blank" class="btn btn-primary fluid right action-ajax"
+                                        data-action="click" data-description="{{$pro->name}} github">
+                                         visit code
+                                       </a>
                                     </div>
                                   </div>
 
@@ -111,8 +120,8 @@
                       </div>
 
                  <div class="medium">
-                          <a href="{{$pro->link}}">
-                              
+                          <a href="{{$pro->link}}"   data-action="click" data-description="{{$pro->name}} image">
+
                               @if(empty($pro->mediumImage()))
                                 <img class="img-fluid" src="{{asset('img/default-medium.svg')}}" alt="blank image">
 
@@ -133,13 +142,13 @@
 
                                   @endif
                               @endif
-                              
+
                           </a>
                       </div>
 
                       <div class="small">
                           <a href="{{$pro->link}}">
-                              
+
                               @if(empty($pro->smallImage()))
                                 <img class="img-fluid" src="{{asset('img/default-small.svg')}}" alt="blank image">
 
@@ -156,10 +165,10 @@
                                       </div>
                                   @else
                                       <img class="img-fluid" src="img/{{$pro->smallImage()[0]->image}}" alt="small image">
-                                  
+
                                   @endif
                               @endif
-                              
+
                           </a>
                       </div>
                   </div>

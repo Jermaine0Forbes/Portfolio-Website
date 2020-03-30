@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Browser;
 class AddressController extends Controller
 {
     /**
@@ -14,12 +14,10 @@ class AddressController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    // protected $ignore = [];
     protected $ignore = ["104.182.148.255", "75.30.183.73"];
 
-    public function index()
-    {
-        //
-    }
+
 
 
 
@@ -29,19 +27,26 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $geo = geoip($request->ip());
+    public function storeVisit(Request $request)
+    {   $ip = $request->ip();
+        $geo = geoip($ip);
+        $ignoreAddress = in_array( $ip, $this->ignore);
+        $data = $this->storeAddress($request, $geo);
 
-        if( in_array( $request->ip(), $this->ignore)){
-             $response = "hello Jermaine";
-        }else{
+        if(empty($geo)) return response()->json("there is something wrong with geolocation");
 
-        $response = (empty($geo) == true)? $this->someData($request) :  $this->allData($request,$geo);
+        if( $ignoreAddress){
+             return response()->json($data);
 
         }
+        // else{
+        //
+        // $response = (empty($geo) == true)? $this->someData($request) :  $this->allData($request,$geo);
+        //
+        // }
+       Address::create($data);
 
-        return $response;
+        return response()->json("data saved");
 
     }
 
@@ -58,32 +63,31 @@ class AddressController extends Controller
          $add->save();
 
 
-          return "all data stored";
+        //  return "all data stored";
      }
 
-     public function someData($request){
-          $add = new Address;
-         $add->ip = $request->ip();
-         $add->path = $request->path;
-         $add->screen_height = $request->height;
-         $add->screen_width = $request->width;
-         $add->save();
-         return "some data stored";
+     public function storeAddress($request, $geo){
+        return [
+          "ip" => $request->ip(),
+          "path" => $request->path,
+          "screen_height" => $request->height,
+          "screen_width" => $request->width,
+          "country" => $geo->iso_code,
+          "zip" => $geo->postal_code,
+          "region" => $geo->state,
+          "city" => $geo->city,
+          "lat" => $geo->lat,
+          "lon" => $geo->lon,
+          "action" => $request->action,
+          "description" => $request->description,
+          "browser" => Browser::browserFamily(),
+          "browser_version" => Browser::browserVersion(),
+          "os" => Browser::platformFamily(),
+          "os_version" => Browser::platformVersion(),
+          "is_bot" => Browser::isBot(),
+          "device_vendor" => Browser::deviceFamily(),
+          "device_brand" => Browser::deviceModel(),
+        ];
      }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Address  $address
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Address $address)
-    {
-
-    }
-
-     public function destroy(Address $address)
-    {
-        //
-    }
 }//controller

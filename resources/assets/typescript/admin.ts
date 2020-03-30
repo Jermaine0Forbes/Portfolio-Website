@@ -38,7 +38,7 @@ class Admin{
 
     private portfolio(){
         (<any> $('[data-toggle="datepicker"]')).datepicker();
-        function increment(value: string):number{
+        function increment(value: number):number{
              return 1+Number(value);
         }
 
@@ -46,8 +46,8 @@ class Admin{
             $(`${id} input[name='${name}']`).val(value)
         }
 
-        function getNumber(id:string):string{
-             let val = $(id).find("input").last().attr("data-number");
+        function getNumber(id:any): number{
+             let val = parseInt($(id).find("input").last().attr("data-number"));
              val = (val > 0)?val:0;
             return val;
 
